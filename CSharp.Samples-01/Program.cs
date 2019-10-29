@@ -8,7 +8,7 @@ namespace CSharp.Samples_01
     /// </summary>
     class Program
     {
-        private const string imageRootPath = @"C:\Users\vadim\Downloads\c#.png";
+        private const string imageRootPath = @"C:\Users\vap\Downloads\c#.png";
 
         static void Main(string[] args)
         {
