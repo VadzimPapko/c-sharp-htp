@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples-01", "CSharp.Samples-01\CSharp.Samples-01.csproj", "{E1A99F16-1C89-4528-80A3-6E54B808C3A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Delegates.GlobalMotorcycleServiceModule", "CSharp.Samples.Delegates.GlobalMotorcycleServiceModule\CSharp.Samples.Delegates.GlobalMotorcycleServiceModule.csproj", "{B140B111-DBAA-4D91-87E0-DF2CDAC39524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.Delegates.GlobalMotorcycleServiceModule", "CSharp.Samples.Delegates.GlobalMotorcycleServiceModule\CSharp.Samples.Delegates.GlobalMotorcycleServiceModule.csproj", "{B140B111-DBAA-4D91-87E0-DF2CDAC39524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Saples.Delegates.MotorcycleConsole", "CSharp.Saples.Delegates.MotorcycleConsole\CSharp.Saples.Delegates.MotorcycleConsole.csproj", "{18B31A8F-1E53-42E3-A3D3-A86F3BCD040C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Saples.Delegates.MotorcycleConsole", "CSharp.Saples.Delegates.MotorcycleConsole\CSharp.Saples.Delegates.MotorcycleConsole.csproj", "{18B31A8F-1E53-42E3-A3D3-A86F3BCD040C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Reflection", "CSharp.Samples.Reflection\CSharp.Samples.Reflection.csproj", "{837D958D-1142-4738-B312-05641341D769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Attributes", "CSharp.Samples.Attributes\CSharp.Samples.Attributes.csproj", "{117353A4-5442-4D7F-9EA6-FD2C405CD87D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{18B31A8F-1E53-42E3-A3D3-A86F3BCD040C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B31A8F-1E53-42E3-A3D3-A86F3BCD040C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18B31A8F-1E53-42E3-A3D3-A86F3BCD040C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837D958D-1142-4738-B312-05641341D769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837D958D-1142-4738-B312-05641341D769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837D958D-1142-4738-B312-05641341D769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837D958D-1142-4738-B312-05641341D769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117353A4-5442-4D7F-9EA6-FD2C405CD87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117353A4-5442-4D7F-9EA6-FD2C405CD87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117353A4-5442-4D7F-9EA6-FD2C405CD87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117353A4-5442-4D7F-9EA6-FD2C405CD87D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
