@@ -8,7 +8,7 @@ namespace CSharp.Samples_01
     /// </summary>
     class Program
     {
-        private const string imageRootPath = @"C:\Users\vap\Downloads\c#.png";
+        private const string imageRootPath = @"C:\Temp\IMG_20200225_212510.jpg";
 
         static void Main(string[] args)
         {
@@ -18,23 +18,54 @@ namespace CSharp.Samples_01
 
             #endregion
 
+            #region Convert Binary Text to Image
+
+            ReadBinary2Image();
+            
+            #endregion
+
             Console.ReadKey();
         }
+
         private static void ConvertImage2Binary()
         {
             byte[] imageBytes = File.ReadAllBytes(imageRootPath);
             var counter = 0;
-            foreach (var item in imageBytes)
-            {
-                counter++;
-                Console.Write(Int32.Parse(Convert.ToString(item, 2)).ToString("0000 0000 "));
 
-                if (counter > 9)
+            using (StreamWriter streamWriter = new StreamWriter(@"C:\Temp\image.txt", true)) 
+            {
+                foreach (var item in imageBytes)
                 {
-                    Console.WriteLine();
-                    counter = 0;
+                    counter++;
+                    var @byte = Int32.Parse(Convert.ToString(item, 2));
+                    streamWriter.Write(@byte.ToString("00000000 "));
+                    Console.Write(@byte.ToString("0000 0000 "));
+
+                    if (counter > 9)
+                    {
+                        Console.WriteLine();
+                        counter = 0;
+                    }
                 }
             }
         }
+
+        private static void ReadBinary2Image() 
+        {
+            StreamReader textReader = new StreamReader(@"C:\Temp\image.txt", true);
+            string textReaderResult = textReader.ReadToEnd();
+            textReader.Dispose();
+
+            string[] arrayOfTextResult = textReaderResult.Split(' ');
+
+            byte[] imageBytes = new byte[arrayOfTextResult.Length - 1];
+            for (int i = 0; i < arrayOfTextResult.Length -1 ; i++)
+            {
+                var binary = Convert.ToByte(arrayOfTextResult[i], 2);
+                imageBytes[i] = binary;
+            }
+
+            File.WriteAllBytes(@"C:\Temp\image.jpg", imageBytes);
+        } 
     }
 }
