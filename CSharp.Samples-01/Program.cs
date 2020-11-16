@@ -8,7 +8,7 @@ namespace CSharp.Samples_01
     /// </summary>
     class Program
     {
-        private const string imageRootPath = @"C:\Temp\IMG_20200225_212510.jpg";
+        private const string imageRootPath = @"C:\!academy\selfie.png";
 
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace CSharp.Samples_01
 
             #region Convert Binary Text to Image
 
-            ReadBinary2Image();
+            //ReadBinary2Image();
             
             #endregion
 
