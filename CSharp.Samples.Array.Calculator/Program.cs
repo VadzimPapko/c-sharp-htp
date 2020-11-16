@@ -11,7 +11,7 @@ namespace CSharp.Samples.Array.Calculator
             while (counter != 5)
             {
                 Console.WriteLine("Input first number: ");
-                int number1 = Convert.ToInt32(Console.ReadLine()); counte
+                int number1 = Convert.ToInt32(Console.ReadLine());
 
                 Console.WriteLine("Input second number: ");
                 int number2 = Convert.ToInt32(Console.ReadLine());
