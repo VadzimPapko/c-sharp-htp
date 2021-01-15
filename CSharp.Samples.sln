@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.Attributes",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.LogicAndOperator", "CSharp.Samples.LogicAndOperator\CSharp.Samples.LogicAndOperator.csproj", "{76466FF2-EAA9-4B2D-BA3C-2C46BF7110DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Array.Calculator", "CSharp.Samples.Array.Calculator\CSharp.Samples.Array.Calculator.csproj", "{268E35D7-9321-4FB8-AA05-8E9F362EB1A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.Array.Calculator", "CSharp.Samples.Array.Calculator\CSharp.Samples.Array.Calculator.csproj", "{268E35D7-9321-4FB8-AA05-8E9F362EB1A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Serilog", "CSharp.Samples.Serilog\CSharp.Samples.Serilog.csproj", "{04E99714-0887-478F-A93E-87C6541FA69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.Serilog", "CSharp.Samples.Serilog\CSharp.Samples.Serilog.csproj", "{04E99714-0887-478F-A93E-87C6541FA69D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.OverloadOperators", "CSharp.Samples.OverloadOperators\CSharp.Samples.OverloadOperators.csproj", "{592A26A3-8610-4417-8C05-2E67732C5680}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{04E99714-0887-478F-A93E-87C6541FA69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04E99714-0887-478F-A93E-87C6541FA69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04E99714-0887-478F-A93E-87C6541FA69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{592A26A3-8610-4417-8C05-2E67732C5680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{592A26A3-8610-4417-8C05-2E67732C5680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{592A26A3-8610-4417-8C05-2E67732C5680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{592A26A3-8610-4417-8C05-2E67732C5680}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
