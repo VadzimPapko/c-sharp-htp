@@ -48,7 +48,6 @@ namespace AttributeSample
                         default:
                             break;
                     }
-
                 }
             }
 

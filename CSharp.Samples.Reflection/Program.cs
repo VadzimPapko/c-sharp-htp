@@ -15,13 +15,14 @@ namespace ReflectionSample
             {
                 Show(0, "Assembly: {0}", assembly);
 
-                if (!assembly.FullName.Contains("ReflectionSample", StringComparison.Ordinal)) continue;
+                if (!assembly.FullName.Contains("CSharp.Samples.Reflection", StringComparison.Ordinal)) continue;
 
                 foreach (Type type in assembly.GetTypes())
                 {
                     Show(1, "Type: {0}", type);
 
                     //Getting info about type's members
+                    
                     foreach (MemberInfo memberInfo in type.GetTypeInfo().DeclaredMembers)
                     {
                         string typeName = string.Empty;
