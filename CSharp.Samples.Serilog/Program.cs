@@ -9,7 +9,7 @@ namespace CSharp.Samples.Serilog
         {
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                .WriteTo.File("logs\\myapp.txt", rollingInterval: RollingInterval.Hour)
+                .WriteTo.File("logs\\log_.txt", rollingInterval: RollingInterval.Hour)
                 .CreateLogger();
             
             

@@ -21,14 +21,15 @@ namespace CSharp.Samples.LogicAndOperator
 
         static bool ReturnTrue()
         {
-            Thread.Sleep(45_000);
+            Thread.Sleep(15_000);
 
+            Console.WriteLine("ReturnTrue method finished at: " + DateTime.Now.TimeOfDay);
             return true;
         }
 
         static bool ReturnFalse()
         {
-            Thread.Sleep(155_000);
+            Thread.Sleep(5_000);
 
             Console.WriteLine("ReturnFalse method finished at: " + DateTime.Now.TimeOfDay);
             return false;

@@ -20,7 +20,7 @@ namespace CSharp.Samples_01
 
             #region Convert Binary Text to Image
 
-            //ReadBinary2Image();
+            ReadBinary2Image();
             
             #endregion
 
