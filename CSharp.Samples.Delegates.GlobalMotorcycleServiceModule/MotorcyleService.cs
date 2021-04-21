@@ -3,9 +3,14 @@
 namespace CSharp.Samples.Delegates.GlobalMotorcycleServiceModule
 {
     public delegate void MotoServiceDelegate(int totalDistance);
+
     
+
     public class MotorcyleService
     {
+        //EventHandler
+        public static event EventHandler<ServiceLimitAchievedEventArgs> ServiceLimitAchieved;
+
         private MotoServiceDelegate _motoServiceDelegate;
         public static int TotalDistance { get; set; }
 
@@ -21,6 +26,8 @@ namespace CSharp.Samples.Delegates.GlobalMotorcycleServiceModule
             if (TotalDistance >= 10_000)
             {
                 NotifyAboutService();
+
+                //OnServiceLimitAchieved(new ServiceLimitAchievedEventArgs(TotalDistance));
             }
         }
 
@@ -29,6 +36,15 @@ namespace CSharp.Samples.Delegates.GlobalMotorcycleServiceModule
             _motoServiceDelegate?.Invoke(TotalDistance);
 
             //_motoServiceDelegate(TotalDistance);
+        }
+
+        /// <summary>
+        /// For the EventHandler Sample
+        /// </summary>
+        /// <param name="eventArgs"></param>
+        protected virtual void OnServiceLimitAchieved(ServiceLimitAchievedEventArgs eventArgs)
+        {
+            ServiceLimitAchieved?.Invoke(this, eventArgs);
         }
     }
 }

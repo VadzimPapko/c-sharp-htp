@@ -14,7 +14,7 @@ namespace AttributeSample
             #endregion
 
             MotorCycle.GetVinNumber();
-
+            return;
             #region Custom Attribute Sample
 
             MotorCycle moto = new MotorCycle();
