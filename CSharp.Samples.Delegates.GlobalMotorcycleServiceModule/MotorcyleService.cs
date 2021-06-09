@@ -4,10 +4,11 @@ namespace CSharp.Samples.Delegates.GlobalMotorcycleServiceModule
 {
     public delegate void MotoServiceDelegate(int totalDistance);
 
-    
-
     public class MotorcyleService
     {
+        //Event
+        public static event Action<int> NotifyMotoService;
+
         //EventHandler
         public static event EventHandler<ServiceLimitAchievedEventArgs> ServiceLimitAchieved;
 
