@@ -8,7 +8,7 @@ namespace CSharp.Samples_01
     /// </summary>
     class Program
     {
-        private const string imageRootPath = @"C:\!academy\selfie.png";
+        private const string imageRootPath = @"C:\!academy\Demo\selfie.png";
 
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace CSharp.Samples_01
 
             #region Convert Binary Text to Image
 
-            ReadBinary2Image();
+            //ReadBinary2Image();
             
             #endregion
 
@@ -32,7 +32,7 @@ namespace CSharp.Samples_01
             byte[] imageBytes = File.ReadAllBytes(imageRootPath);
             var counter = 0;
 
-            using (StreamWriter streamWriter = new StreamWriter(@"C:\Temp\image.txt", true)) 
+            using (StreamWriter streamWriter = new StreamWriter(@"C:\!academy\demo\image.txt", true)) 
             {
                 foreach (var item in imageBytes)
                 {
