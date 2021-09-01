@@ -9,6 +9,7 @@ namespace CSharp.Samples.OverloadOperators
             Motorcycle motorcycle1 = new Motorcycle();
             motorcycle1.Id = Guid.NewGuid();
             Motorcycle motorcycle2 = new Motorcycle();
+            motorcycle2.Id = motorcycle1.Id;
             Motorcycle motorcycle3 = motorcycle1;
 
             Motorcycle[] motorcycles = motorcycle1 + motorcycle2;
@@ -38,7 +39,7 @@ namespace CSharp.Samples.OverloadOperators
             return new Motorcycle[]{moto1, moto2 };
         }
 
-        public static Motorcycle operator +(Motorcycle moto, int number)
+        public static Motorcycle operator + (Motorcycle moto, int number)
         {
             moto.Odometer += number;
             return moto;
