@@ -10,6 +10,63 @@ namespace CSharp.Samples.Threads
     {
         static void Main(string[] args)
         {
+            //Foreground & Background Threads
+            //Sample7_Foreground_BackgroundThreads();
+
+            //Thread Priority
+            //Console.WriteLine(Thread.CurrentThread.Priority);
+
+            //Task Usage
+            Sample8_Task_Usage();
+
+            //Task Result
+            //int result = Sample8_Task_Sum(1_000_000_000);
+            //Console.WriteLine(result);
+
+            Sample9_Parallel_Invoke();
+
+            //Task Exception 1
+            /*
+            Task<int> t = new Task<int>(n => Sample8_Task_Sum((int)n), 1_000_000_000);
+            Thread.Sleep(5_000);
+            Console.WriteLine("Ok. Running Sum");
+            t.Start();
+
+            //var result = t.Result;
+            try
+            {
+                var result = t.Result;
+                Console.WriteLine(t.Result);
+            }
+            catch (AggregateException ex)
+            {
+                Console.WriteLine("Task canceled");
+            }
+            finally
+            {
+                Console.WriteLine(t.Status);
+            }
+            */
+
+            /*
+            CancellationTokenSource cts = new CancellationTokenSource();
+            cts.CancelAfter(3_000);
+
+            Task<int> t = new Task<int>(() => Sample8_Task_Sum(cts.Token, 1000));
+            t.Start();
+            //Thread.Sleep(10_000);
+            //cts.Cancel();
+
+            try
+            {
+                Console.WriteLine($"Result is {t.Result}");
+            }
+            catch (AggregateException ex)
+            {
+                Console.WriteLine("Task status: " + t.Status);
+            }
+            */
+
             /*
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -37,7 +94,7 @@ namespace CSharp.Samples.Threads
             //Sample5();
 
             //Task Exception
-            Sample6();
+            //Sample6();
         }
 
         static void Sample1()
@@ -79,14 +136,14 @@ namespace CSharp.Samples.Threads
         /// <summary>
         /// Closure
         /// </summary>
-        static void Sample2() 
+        static void Sample2()
         {
             for (int i = 0; i < 10; i++)
             {
                 //Each iterator has own value i in stack
                 //int local = i;
                 //new Thread(() => Console.Write(local)).Start();
-                
+
                 new Thread(() => Console.Write(i)).Start();
             }
         }
@@ -94,7 +151,7 @@ namespace CSharp.Samples.Threads
         /// <summary>
         /// Exceptions
         /// </summary>
-        static void Sample3() 
+        static void Sample3()
         {
             try
             {
@@ -117,7 +174,7 @@ namespace CSharp.Samples.Threads
         /// <summary>
         /// Background Threads
         /// </summary>
-        static void Sample4() 
+        static void Sample4()
         {
             Thread worker = new Thread(() => Console.ReadLine());
             Console.WriteLine(worker.IsBackground);
@@ -153,7 +210,7 @@ namespace CSharp.Samples.Threads
         /// <summary>
         /// Task Exception
         /// </summary>
-        static void Sample6() 
+        static void Sample6()
         {
             Task task = Task.Run(() => { throw null; });
 
@@ -170,6 +227,88 @@ namespace CSharp.Samples.Threads
                 else
                     throw;
             }
+        }
+
+        static void Sample7_Foreground_BackgroundThreads()
+        {
+            Thread thread = new Thread(Worker); //foregound by default
+
+            //thread.IsBackground = true; //do not sleep 10 secs
+
+            thread.Start();
+
+            //Thread.Sleep(100_000);
+            Console.WriteLine("Returning from Main");
+        }
+
+        private static void Worker() 
+        {
+            //Thread.Sleep(1000_000); //Demonstrate Explorer Manager + Spy++
+            Thread.Sleep(10_000);
+            Console.WriteLine("Returning from Worker");
+        }
+
+        public static void Sample8_Task_Usage() 
+        {
+            Task task = new Task(Worker);
+            task.Start();
+            //task.Wait();
+
+            //or
+
+            Task.Run(() => Console.WriteLine("Hey guys!")).Wait();
+        }
+
+        public static int Sample8_Task_Sum(int number) 
+        {
+            int sum = default;
+
+            for (; number > 0 ; number--)
+            {
+                checked { sum += number; }
+            }
+
+            return sum;
+        }
+
+        public static int Sample8_Task_Sum(CancellationToken ct, int number)
+        {
+            Thread.Sleep(20_000);
+
+            if (ct.IsCancellationRequested)
+            {
+                ct.ThrowIfCancellationRequested();
+            }
+
+            return number;
+        }
+
+        public static void Sample9_Parallel_Invoke()
+        {
+            System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            //Sync calls
+            //DoSomething(3_000);
+            //DoSomething(5_000);
+            //DoSomething(10_000);
+
+            //Parallel calls
+            Parallel.Invoke
+            (
+                () => DoSomething(3_000),
+                () => DoSomething(5_000),
+                () => DoSomething(10_000)
+            );
+
+            stopwatch.Stop();
+            Console.WriteLine("Total - " + stopwatch.ElapsedMilliseconds + " ms");
+        }
+
+        private static void DoSomething(int time) 
+        {
+            Console.WriteLine("Runnning " + time + "ms");
+            Thread.Sleep(time);
         }
     }
 }
