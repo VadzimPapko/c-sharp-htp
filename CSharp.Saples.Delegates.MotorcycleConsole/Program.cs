@@ -7,9 +7,12 @@ namespace CSharp.Saples.Delegates.MotorcycleConsole
     {
         static void Main(string[] args)
         {
-            MotoServiceDelegate @delegate = new MotoServiceDelegate(GoToService);
-            MotorcyleService service = new MotorcyleService(@delegate);
+            //MotoServiceDelegate @delegate = new MotoServiceDelegate(GoToService);
+            //MotorcyleService service = new MotorcyleService(@delegate);
+
+            MotorcyleService service = new MotorcyleService();
             MyConsoleMotorcycle myConsoleMotorcycle = new MyConsoleMotorcycle("Honda");
+            MotorcyleService.NotifyMotoService += GoToService;
 
             //Let's Drive
             myConsoleMotorcycle.StartEngine();
@@ -20,7 +23,7 @@ namespace CSharp.Saples.Delegates.MotorcycleConsole
             service = null;
 
             //Let's Drive one more time
-            service = new MotorcyleService(@delegate);
+            //service = new MotorcyleService(@delegate);
             myConsoleMotorcycle = new MyConsoleMotorcycle("Honda");
             myConsoleMotorcycle.StartEngine();
             myConsoleMotorcycle.Move(1_000);
@@ -30,7 +33,8 @@ namespace CSharp.Saples.Delegates.MotorcycleConsole
             service = null;
 
             //Let's Drive one more time
-            service = new MotorcyleService(@delegate);
+            //service = new MotorcyleService(@delegate);
+            service = new MotorcyleService();
             myConsoleMotorcycle = new MyConsoleMotorcycle("Honda");
             myConsoleMotorcycle.StartEngine();
         }

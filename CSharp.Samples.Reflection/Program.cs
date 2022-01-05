@@ -47,7 +47,7 @@ namespace ReflectionSample
             Type ctorParameter = typeof(string); //or Type.GetType("System.String");
 
             ConstructorInfo ctor = motoType.GetTypeInfo().DeclaredConstructors
-                .First(ct => ct.GetParameters()[0].ParameterType == ctorParameter);
+                .First(ct => ct.GetParameters().Any() && ct.GetParameters()[0].ParameterType == ctorParameter);
 
             object[] args = new object[] { "Honda" };
             object obj = ctor.Invoke(args);

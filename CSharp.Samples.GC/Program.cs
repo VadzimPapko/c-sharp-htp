@@ -25,7 +25,8 @@ namespace CSharp.Samples.GC
             Console.Write("1 Total Heap Size: ");
             Console.WriteLine(System.GC.GetGCMemoryInfo().HeapSizeBytes);
 
-            Sample2();
+            //Sample2();
+            Sample3Using();
 
             System.Threading.Thread.Sleep(5_000);
             Console.WriteLine();
@@ -78,7 +79,7 @@ namespace CSharp.Samples.GC
             MyConsoleMotorcycle[] motorcycles = Enumerable.Range(0, 10_000)
                 .Select(moto => new MyConsoleMotorcycle(globalMotoService)).ToArray();
 
-            Array.ForEach(motorcycles, c => c.Dispose());
+            //Array.ForEach(motorcycles, c => c.Dispose());
         }
 
         static void Sample3Using() 

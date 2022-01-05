@@ -22,21 +22,29 @@ namespace CSharp.Samples.Delegates.GlobalMotorcycleServiceModule
             CheckDistance();
         }
 
+        public MotorcyleService()
+        {
+            CheckDistance();
+        }
+
         void CheckDistance()
         {
             if (TotalDistance >= 10_000)
             {
                 NotifyAboutService();
-
+                
                 //OnServiceLimitAchieved(new ServiceLimitAchievedEventArgs(TotalDistance));
             }
         }
 
         void NotifyAboutService()
         {
-            _motoServiceDelegate?.Invoke(TotalDistance);
+            //_motoServiceDelegate?.Invoke(TotalDistance);
 
             //_motoServiceDelegate(TotalDistance);
+
+            //Event
+            NotifyMotoService?.Invoke(TotalDistance);
         }
 
         /// <summary>

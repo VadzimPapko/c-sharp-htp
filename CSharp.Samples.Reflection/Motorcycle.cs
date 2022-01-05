@@ -10,9 +10,17 @@
         int _odometer;
         public int Odometer { get => _odometer; set => _odometer = value; }
 
+        public Motorcycle()
+        {
+        }
+
         public Motorcycle(string name)
         {
             Name = name;
+        }
+
+        public Motorcycle(DateTime created, string name)
+        {
         }
 
         public int GetVinNumber()

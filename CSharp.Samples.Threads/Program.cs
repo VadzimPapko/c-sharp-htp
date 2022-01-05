@@ -10,6 +10,14 @@ namespace CSharp.Samples.Threads
     {
         static void Main(string[] args)
         {
+            //Sample1();
+
+            //Sample3();
+
+            //Sample4();
+
+            //Sample5();
+
             //Foreground & Background Threads
             //Sample7_Foreground_BackgroundThreads();
 
@@ -17,7 +25,7 @@ namespace CSharp.Samples.Threads
             //Console.WriteLine(Thread.CurrentThread.Priority);
 
             //Task Usage
-            Sample8_Task_Usage();
+            //Sample8_Task_Usage();
 
             //Task Result
             //int result = Sample8_Task_Sum(1_000_000_000);
@@ -65,6 +73,7 @@ namespace CSharp.Samples.Threads
             {
                 Console.WriteLine("Task status: " + t.Status);
             }
+            
             */
 
             /*
@@ -104,7 +113,7 @@ namespace CSharp.Samples.Threads
             Thread thread = new Thread(_ =>
             {
                 List<object> collectionY = new List<object>();
-                for (int i = 0; i < 1_000_000; i++)
+                for (int i = 0; i < 100_000; i++)
                 {
                     Console.Write("Y");
                     collectionY.Add(new { Name = "Y", Number = long.MaxValue });
@@ -114,15 +123,15 @@ namespace CSharp.Samples.Threads
             thread.Start();
             //thread.Join();
 
-            //List<object> collectionY = new List<object>();
-            //for (int i = 0; i < 1_000_000; i++) 
-            //{
-            //    Console.Write("Y");
-            //    collectionY.Add(new { Name = "Y", Number = long.MaxValue });
-            //}
+            List<object> collectionY = new List<object>();
+            for (int i = 0; i < 100_000; i++)
+            {
+                Console.Write("Y");
+                collectionY.Add(new { Name = "Y", Number = long.MaxValue });
+            }
 
             List<object> collectionX = new List<object>();
-            for (int i = 0; i < 1_000_000; i++)
+            for (int i = 0; i < 100_000; i++)
             {
                 Console.Write("X");
                 collectionX.Add(new { Name = "X", Number = long.MaxValue });
@@ -164,6 +173,7 @@ namespace CSharp.Samples.Threads
             }
 
             Console.WriteLine("Done");
+            Console.ReadLine();
         }
 
         private static void Go(object obj)
@@ -200,6 +210,7 @@ namespace CSharp.Samples.Threads
 
             Console.WriteLine(task.IsCompleted);
             task.Wait();
+            Console.WriteLine(task.IsCompleted);
 
             //Task<TResult>
             Task<int> task1 = Task.Run(() => { Console.WriteLine("Simple Task"); return 1000; });
