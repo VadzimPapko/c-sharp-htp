@@ -19,7 +19,7 @@
             Name = name;
         }
 
-        public Motorcycle(DateTime created, string name)
+        public Motorcycle(System.DateTime created, string name)
         {
         }
 
