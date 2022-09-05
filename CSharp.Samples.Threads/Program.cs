@@ -8,18 +8,26 @@ namespace CSharp.Samples.Threads
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            #region Async/Await Sample
+                SushiService sushiService = new SushiService();
+                var data = await sushiService.GetSushiAsync();
+                Console.WriteLine();
+            #endregion
+
+            //Thread Sample with X, Y output
             //Sample1();
 
+            //Exceptions in Thread
             //Sample3();
 
             //Sample4();
 
-            //Sample5();
-
             //Foreground & Background Threads
             //Sample7_Foreground_BackgroundThreads();
+
+            //Sample5();
 
             //Thread Priority
             //Console.WriteLine(Thread.CurrentThread.Priority);
@@ -31,7 +39,7 @@ namespace CSharp.Samples.Threads
             //int result = Sample8_Task_Sum(1_000_000_000);
             //Console.WriteLine(result);
 
-            Sample9_Parallel_Invoke();
+            //Sample9_Parallel_Invoke();
 
             //Task Exception 1
             /*
@@ -56,14 +64,12 @@ namespace CSharp.Samples.Threads
             }
             */
 
-            /*
+
             CancellationTokenSource cts = new CancellationTokenSource();
             cts.CancelAfter(3_000);
 
             Task<int> t = new Task<int>(() => Sample8_Task_Sum(cts.Token, 1000));
             t.Start();
-            //Thread.Sleep(10_000);
-            //cts.Cancel();
 
             try
             {
@@ -73,8 +79,6 @@ namespace CSharp.Samples.Threads
             {
                 Console.WriteLine("Task status: " + t.Status);
             }
-            
-            */
 
             /*
             var stopwatch = new Stopwatch();
@@ -103,7 +107,7 @@ namespace CSharp.Samples.Threads
             //Sample5();
 
             //Task Exception
-            //Sample6();
+            Sample6();
         }
 
         static void Sample1()
@@ -120,7 +124,7 @@ namespace CSharp.Samples.Threads
                 }
             });
 
-            thread.Start();
+            //thread.Start();
             //thread.Join();
 
             List<object> collectionY = new List<object>();
@@ -153,7 +157,7 @@ namespace CSharp.Samples.Threads
                 //int local = i;
                 //new Thread(() => Console.Write(local)).Start();
 
-                new Thread(() => Console.Write(i)).Start();
+               //new Thread(() => Console.Write(i)).Start();
             }
         }
 
@@ -182,7 +186,7 @@ namespace CSharp.Samples.Threads
         }
 
         /// <summary>
-        /// Background Threads
+        /// Background Threads by Defaul
         /// </summary>
         static void Sample4()
         {
@@ -198,24 +202,24 @@ namespace CSharp.Samples.Threads
         {
             //base call - send Action
             //using threads from the Thread Pool
-            Task.Run(() => Console.WriteLine("Simple Task"));
+            //Task.Run(() => Console.WriteLine("Simple Task"));
             //Console.ReadLine();
 
             //Status and wait;
-            Task task = Task.Run(() =>
-            {
-                Thread.Sleep(2_000);
-                Console.WriteLine("Task there");
-            });
+            //Task task = Task.Run(() =>
+            //{
+            //    Thread.Sleep(2_000);
+            //    Console.WriteLine("Task there");
+            //});
 
-            Console.WriteLine(task.IsCompleted);
-            task.Wait();
-            Console.WriteLine(task.IsCompleted);
+            //Console.WriteLine(task.IsCompleted);
+            //task.Wait();
+            //Console.WriteLine(task.IsCompleted);
 
             //Task<TResult>
-            Task<int> task1 = Task.Run(() => { Console.WriteLine("Simple Task"); return 1000; });
-
-            int result = task1.Result;
+            //Task<int> task1 = Task.Run(() => { Console.WriteLine("Simple Task"); return 1000; });
+            //int result = task1.Result;
+            //Console.WriteLine(result);
         }
 
         /// <summary>
@@ -249,7 +253,7 @@ namespace CSharp.Samples.Threads
             thread.Start();
 
             //Thread.Sleep(100_000);
-            Console.WriteLine("Returning from Main");
+            Console.WriteLine("Main thread completed!");
         }
 
         private static void Worker() 
@@ -263,7 +267,7 @@ namespace CSharp.Samples.Threads
         {
             Task task = new Task(Worker);
             task.Start();
-            //task.Wait();
+            task.Wait();
 
             //or
 
@@ -276,7 +280,8 @@ namespace CSharp.Samples.Threads
 
             for (; number > 0 ; number--)
             {
-                checked { sum += number; }
+                //checked { sum += number; }
+                sum += number;
             }
 
             return sum;
@@ -284,7 +289,7 @@ namespace CSharp.Samples.Threads
 
         public static int Sample8_Task_Sum(CancellationToken ct, int number)
         {
-            Thread.Sleep(20_000);
+            Thread.Sleep(5_000);
 
             if (ct.IsCancellationRequested)
             {
@@ -300,9 +305,9 @@ namespace CSharp.Samples.Threads
             stopwatch.Start();
 
             //Sync calls
-            //DoSomething(3_000);
-            //DoSomething(5_000);
-            //DoSomething(10_000);
+            DoSomething(3_000);
+            DoSomething(5_000);
+            DoSomething(10_000);
 
             //Parallel calls
             Parallel.Invoke

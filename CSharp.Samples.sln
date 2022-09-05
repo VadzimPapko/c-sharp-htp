@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.IO", "CSharp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.GC", "CSharp.Samples.GC\CSharp.Samples.GC.csproj", "{04C30B4F-74CD-4F65-A546-5CF4591045E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Arrays", "CSharp.Samples.Arrays\CSharp.Samples.Arrays.csproj", "{1D67315E-734C-485F-817A-5C0D78170501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Samples.Arrays", "CSharp.Samples.Arrays\CSharp.Samples.Arrays.csproj", "{1D67315E-734C-485F-817A-5C0D78170501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Samples.Types", "CSharp.Samples.Types\CSharp.Samples.Types.csproj", "{812775F2-08A9-470E-A847-79328B409D25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{1D67315E-734C-485F-817A-5C0D78170501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D67315E-734C-485F-817A-5C0D78170501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D67315E-734C-485F-817A-5C0D78170501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812775F2-08A9-470E-A847-79328B409D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812775F2-08A9-470E-A847-79328B409D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812775F2-08A9-470E-A847-79328B409D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812775F2-08A9-470E-A847-79328B409D25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

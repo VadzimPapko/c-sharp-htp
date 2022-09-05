@@ -8,19 +8,22 @@ namespace CSharp.Samples_01
     /// </summary>
     class Program
     {
-        private const string imageRootPath = @"C:\!academy\Demo\selfie.png";
+        private const string RootPath = @"C:\!academy\Demka\";
+        private const string ImagePath = RootPath + "selfie.png";
+        private const string FilePath = RootPath + "image.txt";
+        private const string NewImagePath = RootPath + "new.png";
 
         static void Main(string[] args)
         {
             #region Convert Image To Binary
 
-            ConvertImage2Binary();
+            //ConvertImage2Binary();
 
             #endregion
 
             #region Convert Binary Text to Image
 
-            //ReadBinary2Image();
+            ReadBinary2Image();
             
             #endregion
 
@@ -29,10 +32,10 @@ namespace CSharp.Samples_01
 
         private static void ConvertImage2Binary()
         {
-            byte[] imageBytes = File.ReadAllBytes(imageRootPath);
+            byte[] imageBytes = File.ReadAllBytes(ImagePath);
             var counter = 0;
 
-            using (StreamWriter streamWriter = new StreamWriter(@"C:\!academy\demo\image.txt", true)) 
+            using (StreamWriter streamWriter = new StreamWriter(FilePath, true)) 
             {
                 foreach (var item in imageBytes)
                 {
@@ -52,7 +55,7 @@ namespace CSharp.Samples_01
 
         private static void ReadBinary2Image() 
         {
-            StreamReader textReader = new StreamReader(@"C:\Temp\image.txt", true);
+            StreamReader textReader = new StreamReader(FilePath, true);
             string textReaderResult = textReader.ReadToEnd();
             textReader.Dispose();
 
@@ -65,7 +68,9 @@ namespace CSharp.Samples_01
                 imageBytes[i] = binary;
             }
 
-            File.WriteAllBytes(@"C:\Temp\image.jpg", imageBytes);
+            File.WriteAllBytes(NewImagePath, imageBytes);
+
+            Console.WriteLine("Done");
         } 
     }
 }

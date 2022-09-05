@@ -62,7 +62,7 @@ namespace ReflectionSample
             Console.WriteLine(obj.ToString());
 
             //Read/Write Property
-            PropertyInfo propertyInfo = obj.GetType().GetTypeInfo().GetDeclaredProperty("Model");
+            PropertyInfo propertyInfo = obj.GetType().GetTypeInfo().GetDeclaredProperty(nameof(Motorcycle.Model));
             propertyInfo.SetValue(obj, "CB600F");
             Console.WriteLine(propertyInfo.GetValue(obj));
 
